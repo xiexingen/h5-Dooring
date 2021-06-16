@@ -3,6 +3,7 @@
     "target": "es5",
     "module": "ESNext",
     "moduleResolution": "node",
+    "noImplicitAny": true,
     "jsx": "react",
     "baseUrl": ".",
     "strict": true,
