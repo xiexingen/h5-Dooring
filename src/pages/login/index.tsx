@@ -30,9 +30,8 @@ const content = (
 
 const Login = () => {
   const onFinish = (values: FormValues) => {
-    const { n, co } = values;
-    req.post('/vip/check', { n, co }).then((res: any) => {
-      localStorage.setItem('nickname', res.n);
+    req.post('/api/vip/check', values).then((res: any) => {
+      localStorage.setItem('nickname', res.nickname);
       localStorage.setItem('h5', JSON.stringify(res.h5));
       history.push('/');
     });
@@ -44,18 +43,18 @@ const Login = () => {
         {...layout}
         name="login"
         className={styles.formWrap}
-        initialValues={{ remember: true }}
+        initialValues={{ remember: true,nickname:'admin',password:'Abcd1234' }}
         onFinish={onFinish}
       >
         <div className={styles.tit}>
           Dooring开放平台
           <span style={{ marginLeft: '20px', fontSize: '18px', color: '#06c' }}>登录</span>
         </div>
-        <Form.Item label="用户名" name="n" rules={[{ required: true, message: '请输入用户名!' }]}>
+        <Form.Item label="用户名" name="nickname" rules={[{ required: true, message: '请输入用户名!' }]}>
           <Input />
         </Form.Item>
 
-        <Form.Item label="密码" name="co" rules={[{ required: true, message: '请输入密码!' }]}>
+        <Form.Item label="密码" name="password" rules={[{ required: true, message: '请输入密码!' }]}>
           <Input.Password />
         </Form.Item>
 

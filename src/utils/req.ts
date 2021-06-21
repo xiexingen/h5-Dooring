@@ -1,11 +1,11 @@
 import axios from 'axios';
 import { message } from 'antd';
 
-const isDev = process.env.NODE_ENV === 'development';
+// const isDev = process.env.NODE_ENV === 'development';
 
 const instance = axios.create({
   // 服务器地址需要自己配置和开发
-  baseURL: isDev ? 'http://localhost:3000/xxx' : 'http://xxxxx',
+  // baseURL: '',
   timeout: 10000,
   withCredentials: true,
 });
